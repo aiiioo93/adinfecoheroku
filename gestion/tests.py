@@ -93,8 +93,7 @@ class EtatDesLieuxTest(TestCase):
         self.assertEqual(self.etat_des_lieux.remarques, self.remarques)
 
     def test_etat_des_lieux_str(self):
-        # Vérifie si la méthode __str__ de l'objet EtatDesLieux renvoie la valeur attendue
-        expected_output = f"{self.appartement} - {self.date}"
+        expected_output = f"{self.etat_des_lieux.appartement.adresse} - {self.etat_des_lieux.date}"
         self.assertEqual(str(self.etat_des_lieux), expected_output)
 
     def test_etat_des_lieux_date_non_nulle(self):

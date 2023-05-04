@@ -35,7 +35,12 @@ class AffectationAppartement(models.Model):
         return f"{self.locataire.nom} - {self.appartement.adresse}"
 
 class EtatDesLieux(models.Model):
-    pass
+    appartement = models.ForeignKey(Appartement, on_delete=models.CASCADE)
+    date = models.DateField()
+    remarques = models.TextField()
+
+    def __str__(self):
+        return f"{self.appartement.adresse} - {self.date}"
 
 
 
