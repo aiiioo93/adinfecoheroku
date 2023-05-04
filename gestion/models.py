@@ -13,7 +13,7 @@ class Locataire(models.Model):
 
 class Appartement(models.Model):
         adresse = models.CharField(max_length=200)
-        complement_adresse = models.CharField(max_length=100)
+        complement_adresse = models.CharField(max_length=100, null=True)
         ville = models.CharField(max_length=50)
         code_postal = models.CharField(max_length=10)
         prix_charges = models.DecimalField(max_digits=10, decimal_places=2)

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des appartements</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  </head>
+  <body>
+    <div class="navbar">
+
+      <a href="{% url 'appartement_list' %}">Appartements</a>
+      <a href="{% url 'locataire_list' %}">Locataires</a>
+      <a href="{% url 'affectation_appartement_list' %}">Affectations appartement</a>
+      <a href="{% url 'etat_des_lieux_list' %}">États des lieux</a>
+      <a href="{% url 'paiement_list' %}">Paiements</a>
+      <a href="{% url 'quittance_loyer_list' %}">Quittances de loyer</a>
+      <a href= "{% url 'admin:index' %}" class="btn btn-danger" target="_blank">Administration</a>
+
+    </div>
+    <div class="container">
+        <div class="container">
+            <h1>Liste des appartements</h1>
+            <table>
+              <thead>
+                <tr>
+                  <th>Adresse</th>
+                  <th>Complément d'adresse</th>
+                  <th>Ville</th>
+                  <th>Code postal</th>
+                  <th>Prix des charges</th>
+                  <th>Loyer</th>
+                  <th>Dépôt de garantie</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for appartement in appartements %}
+                  <tr>
+                    <td>{{ appartement.adresse }}</td>
+                    <td>{{ appartement.complement_adresse }}</td>
+                    <td>{{ appartement.ville }}</td>
+                    <td>{{ appartement.code_postal }}</td>
+                    <td>{{ appartement.prix_charges }}</td>
+                    <td>{{ appartement.loyer }}</td>
+                    <td>{{ appartement.depot_garantie }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </body>
+</html>
