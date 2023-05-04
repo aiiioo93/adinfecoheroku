@@ -43,7 +43,12 @@ class EtatDesLieux(models.Model):
         return f"{self.appartement.adresse} - {self.date}"
 
 class Paiement(models.Model):
-    pass
+    locataire = models.ForeignKey(Locataire, on_delete=models.CASCADE)
+    date = models.DateField()
+    montant = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.locataire.nom} - {self.date.strftime('%Y-%m-%d')} - {self.montant:.2f}"
 
 
 
