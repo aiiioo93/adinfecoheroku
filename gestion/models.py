@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import date
+
 
 class Locataire(models.Model):
     nom = models.CharField(max_length=100)
@@ -21,4 +23,12 @@ class Appartement(models.Model):
 
         def __str__(self):
             return self.adresse
+
+
+class AffectationAppartement(models.Model):
+    pass
+
+
+
+
 
