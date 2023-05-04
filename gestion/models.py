@@ -57,7 +57,3 @@ class QuittanceLoyer(models.Model):
 
     def __str__(self):
         return f"{self.locataire.nom} - {self.periode.strftime('%B %Y')}"
-
-
-
-
