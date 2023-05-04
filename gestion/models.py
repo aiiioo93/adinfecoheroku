@@ -9,3 +9,6 @@ class Locataire(models.Model):
     def __str__(self):
         return self.nom
 
+class Appartement(models.Model):
+    pass
+
