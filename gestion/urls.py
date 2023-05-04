@@ -15,7 +15,7 @@ urlpatterns = [
     path('etat_des_lieux_list', views.etat_des_lieux_list, name='etat_des_lieux_list'),
     path('paiement_list', views.paiement_list, name='paiement_list'),
     path('quittance_loyer_list', views.quittance_loyer_list, name='quittance_loyer_list'),
-    path('admin/', admin.site.urls, name='admin'),
+
 
 
 ]

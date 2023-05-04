@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+app_name = 'infeco'
+
 urlpatterns = [
     path('', include('gestion.urls')),
     path('admin/', admin.site.urls),
