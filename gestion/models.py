@@ -42,6 +42,8 @@ class EtatDesLieux(models.Model):
     def __str__(self):
         return f"{self.appartement.adresse} - {self.date}"
 
+class Paiement(models.Model):
+    pass
 
 
 

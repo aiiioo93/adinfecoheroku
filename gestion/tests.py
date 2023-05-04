@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import Locataire, Appartement, AffectationAppartement, EtatDesLieux
+from .models import Locataire, Appartement, AffectationAppartement, EtatDesLieux, Paiement
+from decimal import Decimal
 from datetime import date
 from django.utils import timezone
 
@@ -104,4 +105,31 @@ class EtatDesLieuxTest(TestCase):
         # Vérifie que les remarques de l'objet EtatDesLieux ne sont pas nulles
         self.assertIsNotNone(self.etat_des_lieux.remarques)
 
+
+class PaiementTest(TestCase):
+    def setUp(self):
+        self.locataire = Locataire.objects.create(
+            nom="Dupont",
+            adresse="1 rue de la Paix",
+            numero_telephone="0123456789",
+            adresse_email="dupont@example.com"
+        )
+        self.paiement = Paiement.objects.create(
+            locataire=self.locataire,
+            date=date(2023, 5, 4),
+            montant=Decimal("500.00")
+        )
+
+    def test_paiement_creation(self):
+        paiement = Paiement.objects.get(id=1)
+        self.assertEqual(paiement.locataire, self.locataire)
+        self.assertEqual(paiement.date, date(2023, 5, 4))
+        self.assertEqual(paiement.montant, Decimal("500.00"))
+
+    def test_paiement_str(self):
+        expected_output = f"{self.paiement.locataire.nom} - {self.paiement.date} - {self.paiement.montant}"
+        self.assertEqual(str(self.paiement), expected_output)
+
+        def __str__(self):
+            return f"{self.locataire.nom} - {self.date.strftime('%Y-%m-%d')} - {self.montant:.2f}"
 
