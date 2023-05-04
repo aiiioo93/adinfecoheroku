@@ -50,5 +50,8 @@ class Paiement(models.Model):
     def __str__(self):
         return f"{self.locataire.nom} - {self.date.strftime('%Y-%m-%d')} - {self.montant:.2f}"
 
+class QuittanceLoyer(models.Model):
+    pass
+
 
 

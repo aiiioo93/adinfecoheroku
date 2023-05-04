@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Locataire, Appartement, AffectationAppartement, EtatDesLieux, Paiement
+from .models import Locataire, Appartement, AffectationAppartement, EtatDesLieux, Paiement, QuittanceLoyer
 from decimal import Decimal
 from datetime import date
 from django.utils import timezone
@@ -132,4 +132,31 @@ class PaiementTest(TestCase):
 
         def __str__(self):
             return f"{self.locataire.nom} - {self.date.strftime('%Y-%m-%d')} - {self.montant:.2f}"
+
+
+
+class QuittanceLoyerTest(TestCase):
+
+    def setUp(self):
+        self.locataire = Locataire.objects.create(
+            nom="Dupont",
+            adresse="1 rue de la Paix",
+            numero_telephone="0123456789",
+            adresse_email="dupont@gmail.com"
+        )
+        self.quittance = QuittanceLoyer.objects.create(
+            locataire=self.locataire,
+            periode=timezone.now(),
+            montant=Decimal('500.00')
+        )
+
+    def test_quittance_loyer_creation(self):
+        self.assertEqual(self.quittance.locataire.nom, "Dupont")
+        self.assertEqual(self.quittance.periode.date(), timezone.now().date())
+        self.assertEqual(self.quittance.montant, Decimal('500.00'))
+
+    def test_quittance_loyer_str(self):
+        expected_output = f"{self.locataire.nom} - {self.quittance.periode.strftime('%B %Y')}"
+        self.assertEqual(str(self.quittance), expected_output)
+
 
