@@ -26,8 +26,13 @@ class Appartement(models.Model):
 
 
 class AffectationAppartement(models.Model):
-    pass
+    appartement = models.ForeignKey(Appartement, on_delete=models.CASCADE)
+    locataire = models.ForeignKey(Locataire, on_delete=models.CASCADE)
+    date_debut = models.DateField()
+    date_fin = models.DateField(blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.locataire.nom} - {self.appartement.adresse}"
 
 
 
