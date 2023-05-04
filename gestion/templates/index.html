@@ -1,31 +1,8 @@
-
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
-    <div class="navbar">
-
-      <a href="{% url 'appartement_list' %}">Appartements</a>
-      <a href="{% url 'locataire_list' %}">Locataires</a>
-      <a href="{% url 'affectation_appartement_list' %}">Affectations appartement</a>
-      <a href="{% url 'etat_des_lieux_list' %}">États des lieux</a>
-      <a href="{% url 'paiement_list' %}">Paiements</a>
-      <a href="{% url 'quittance_loyer_list' %}">Quittances de loyer</a>
-        <a href= "{% url 'admin:index' %}" class="btn btn-danger" target="_blank">Administration</a>
-          </div>
+{% include 'entete.html' %}
 
     <div class="container">
       <h1>Bienvenue sur votre application de gestion de locataire</h1>
       <p>Gérez vos locataires et vos appartements en toute simplicité</p>
     </div>
 
-
-  </body>
-</html>
+{% include 'footer.html' %}
