@@ -12,14 +12,13 @@ from django.http import HttpResponseNotAllowed
 
 
 def index(request):
-    return render(request,'index.html')
-
+    return render(request, 'index.html')
 
 
 def appartement_list(request):
     if request.method == 'GET':
         appartements = Appartement.objects.all()
-        return render(request, 'appartement_list.html', {'appartements': appartements} )
+        return render(request, 'appartement_list.html', {'appartements': appartements})
     else:
         return HttpResponseNotAllowed(['GET'])
 
@@ -36,7 +35,8 @@ def locataire_list(request):
 def affectation_appartement_list(request):
     if request.method == 'GET':
         affectation_appartements = AffectationAppartement.objects.all()
-        return render(request, 'affectation_appartement_list.html', {'affectation_appartements': affectation_appartements} )
+        return render(request, 'affectation_appartement_list.html',
+                      {'affectation_appartements': affectation_appartements})
     else:
         return HttpResponseNotAllowed(['GET'])
 
@@ -44,7 +44,7 @@ def affectation_appartement_list(request):
 def etat_des_lieux_list(request):
     if request.method == 'GET':
         etat_des_lieux = EtatDesLieux.objects.all()
-        return render(request, 'etat_des_lieux_list.html', {'etat_des_lieux': etat_des_lieux} )
+        return render(request, 'etat_des_lieux_list.html', {'etat_des_lieux': etat_des_lieux})
     else:
         return HttpResponseNotAllowed(['GET'])
 
@@ -52,7 +52,7 @@ def etat_des_lieux_list(request):
 def paiement_list(request):
     if request.method == 'GET':
         paiements = Paiement.objects.all()
-        return render(request, 'paiement_list.html', {'paiements': paiements} )
+        return render(request, 'paiement_list.html', {'paiements': paiements})
     else:
         return HttpResponseNotAllowed(['GET'])
 
@@ -60,10 +60,6 @@ def paiement_list(request):
 def quittance_loyer_list(request):
     if request.method == 'GET':
         quittance_loyers = QuittanceLoyer.objects.all()
-        return render(request, 'quittance_loyer_list.html', {'quittance_loyers': quittance_loyers} )
+        return render(request, 'quittance_loyer_list.html', {'quittance_loyers': quittance_loyers})
     else:
         return HttpResponseNotAllowed(['GET'])
-
-
-
-

@@ -1,25 +1,136 @@
-body{
-    background-color: #b2bec3;
+/* Couleurs */
+:root {
+  --primary-color: #2196F3;
+  --secondary-color: #E91E63;
+  --background-color: #FFFFFF;
 }
 
-      .container {
-        padding-top: 50px;
-        text-align: center;
-      }
-      h1 {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 40px;
-      }
-      .navbar {
-        background-color: #2196F3;
-        padding: 20px;
-        text-align: center;
-      }
-      .navbar a {
-        color: #fff;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        margin: 0 20px;
-      }
+/* Police */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Menu de navigation */
+.navbar {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-link {
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Contenu principal */
+.container {
+  margin-top: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+
+
+th, td {
+  text-align: left;
+  padding: 1rem;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: #FFFFFF;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+}
+
+/* Boutons */
+.btn {
+  background-color: var(--secondary-color);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background-color: #FF4081;
+}
+
+.btn-danger {
+  background-color: #FF4081;
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+
+@media screen and (max-width: 400px) {
+  tbody, th, td {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  td {
+    display: table-cell;
+    position: static;
+    padding-left: 0;
+  }
+
+  td::before {
+    content: none;
+  }
+}
+

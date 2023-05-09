@@ -9,7 +9,6 @@
               <thead>
                 <tr>
                   <th>Adresse</th>
-                  <th>Complément d'adresse</th>
                   <th>Ville</th>
                   <th>Code postal</th>
                   <th>Prix des charges</th>
@@ -21,7 +20,6 @@
                 {% for appartement in appartements %}
                   <tr>
                     <td>{{ appartement.adresse }}</td>
-                    <td>{{ appartement.complement_adresse }}</td>
                     <td>{{ appartement.ville }}</td>
                     <td>{{ appartement.code_postal }}</td>
                     <td>{{ appartement.prix_charges }}</td>
